@@ -12,10 +12,26 @@
 
     <header style="background-color: #FF5733; padding: 20px; text-align: center; color: #FFF;background-image: url(school-banner.jpg);">
         <div style="width: 100%; margin: 0 auto;">
-            <img src="school-logo.jpg" alt="Gowtham School Logo" style="max-width: 100px;">
-            <h1 style="font-size: 48px; font-weight: bold; margin-top: 10px;">Welcome to Gowtham School</h1>
-            <p style="font-size: 24px; font-weight: 300;color: rgb(17, 228, 243);">Where Lifelong Learning Begins!</p>
-            <nav>
+            <!-- Student and Teacher Login Buttons wrapped in divs -->
+            <div class="login-buttons">
+                
+                    <a href="student-login.html"><button class="custom-btn btn-12"><span>Login!</span><span>Student</span></button></a>
+               
+                    <a href="#"><button class="custom-btn btn-12"><span>Login!</span><span>Teacher</span></button></a>
+               
+            </div>
+
+            <!-- School Information -->
+            <div class="school-info">
+                <img src="school-logo.jpg" alt="Gowtham School Logo" style="max-width: 100px;">
+                <h1 style="font-size: 48px; font-weight: bold; margin-top: 10px;">Welcome to Gowtham School</h1>
+                <p style="font-size: 24px; font-weight: 300;color: rgb(17, 228, 243);">Where Lifelong Learning Begins!</p>
+            </div>
+
+            <div style="clear: both;"></div>
+
+            <!-- Navigation -->
+            <nav style="margin-top: 20px;">
                 <a href="#" style="text-decoration: none; color: #FFF; font-size: 20px; margin-right: 30px;">Home</a>
                 <a href="#" style="text-decoration: none; color: #FFF; font-size: 20px; margin-right: 30px;">About</a>
                 <a href="#" style="text-decoration: none; color: #FFF; font-size: 20px; margin-right: 30px;">Admissions</a>
@@ -27,7 +43,7 @@
     <br>
     <h1 style="text-align: center; color: #d14545;"> Our School Infrasturcture</h1>
     <div style="margin-left: 40px;">
-        <img class="image" src="school1.jpg">
+        <img style=":hover{transform: rotateY(180deg)};" class="image" src="school1.jpg">
         <img class="image" src="school2.jpg">
         <img class="image" src="school3.jpg">
         <img class="image" src="school4.jpg">
@@ -38,7 +54,6 @@
     <h1 style="text-align: center; color: #d14545;"> Our Founders</h1>
     <div style="margin-left: 20px;">
         <img class="image" src="founer.jpg">
-
         <img style="margin-left: 180px;" class="image" src="founder1.jpg">
         <img style="margin-left: 150px;" class="image" src="founder2.jpg">
     </div><br><br>
@@ -70,9 +85,9 @@
     </div>
 
     <h2 style="text-align:center;color: #d14545;"">Our Faculty Team</h2>
-    <div class=" row" style="box-sizing: border-box;">
+    <div class=" row" style="box-sizing: border-box; border-radius:20px">
         <div class="column">
-            <div class="card">
+            <div class="card" style=border-radius:20px">
                 <img src="teacher.jpg" alt="Jane" style="width:100%">
                 <div class="container">
                     <h2>Jane Doe</h2>
@@ -110,7 +125,7 @@
             </div>
         </div>
         </div>
-
+        
         <div class="contact-form">
             <h2>Contact Us</h2>
             <form action="submit_form.php" method="POST">
@@ -119,6 +134,9 @@
                 <textarea class="form-input" name="message" placeholder="Your Message" required></textarea>
                 <button type="submit" class="form-submit">Submit</button>
             </form>
+        </div>
+        <div class="floating-help-line">
+            <a href="#help" class="help-icon"><img height="50px" src="help.png"></a>
         </div>
         <footer style="background-color: #f1f1f1; padding: 20px; text-align: center; color: #333;">
             <div style="max-width: 1200px; margin: 0 auto;">
@@ -148,7 +166,11 @@
                 </p>
             </div>
         </footer>
-
+        <script>
+            document.querySelector('.help-icon').addEventListener('click', function() {
+                alert('How can we assist you?');
+            });
+        </script>
 </body>
 
 </html>
