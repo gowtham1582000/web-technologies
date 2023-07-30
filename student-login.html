@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body {
+  background-image: linear-gradient(15deg, #d33f34 50%, #a61322 50.1%);
+}
+
         .login-container {
-    background-color: #f1f1f1;
+    background-color: #7dded6;
     max-width: 400px;
     margin: 100px auto;
     padding: 30px;
@@ -59,6 +63,22 @@ button:hover {
         max-width: 80%;
     }
 }
+/* Center the content inside the container */
+.hr-container {
+  text-align: center;
+  position: relative;
+}
+
+/* Style the word */
+.centered-word {
+  background-color: white; /* Optional: Add a background color to the word */
+  padding: 0 10px; /* Optional: Add some padding around the word */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
     </style>
 </head>
 <body>
@@ -75,6 +95,13 @@ button:hover {
             </div>
             <div class="form-group">
                 <button type="submit">Login</button>
+            </div>
+            <div class="hr-container">
+                <hr>
+                <span class="centered-word">Or</span>
+              </div><br>
+            <div class="form-group">
+                <button onclick="" type="submit">New User</button>
             </div>
         </form>
     </div>
