@@ -6,6 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* Default day mode styles */
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
+        /* Night mode styles (override the default styles) */
+        body.night-mode {
+            background-color: #333333;
+            color: #FFFFFF;
+        }
+        @media only screen and (max-width: 900px) {
+  .align {
+    margin-right: 300px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+    .align2{
+    margin-right: 950px;
+   }
+
+}
+
+@media only screen and (max-width: 600px) {
+  .login-buttons {
+    margin-left: 400px;
+    display:inline;
+  }
+  .align1 {
+    margin: auto;
+  }
+}
+    </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
@@ -15,7 +50,7 @@
         <div>
             <!-- Student and Teacher Login Buttons wrapped in divs -->
             <div class="login-buttons">
-                <div class="toggle-container" style="margin-top: 12px;margin-right: 950px;">
+                <div class="toggle-container align align1 align2">
                     <label class="switch">
                       <input type="checkbox" id="modeToggle">
                       <span class="slider round"> <span class="icon-day">☼</span>
