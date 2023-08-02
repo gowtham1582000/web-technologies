@@ -6,15 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
 
     <header style="background-color: #FF5733; padding: 20px; text-align: center; color: #FFF;background-image: url(school-banner.jpg);">
-        <div style="width: 100%; margin: 0 auto;">
+        <div>
             <!-- Student and Teacher Login Buttons wrapped in divs -->
             <div class="login-buttons">
-                
+                <div class="toggle-container" style="margin-top: 12px;margin-right: 950px;">
+                    <label class="switch">
+                      <input type="checkbox" id="modeToggle">
+                      <span class="slider round"> <span class="icon-day">☼</span>
+                        <span class="icon-moon">☽</span></span>
+                    </label>
+                  </div>
                     <a href="student-login-signup.html"><button class="custom-btn btn-12"><span>Login!</span><span>Student</span></button></a>
                
                     <a href="teacher-login-signup.html"><button class="custom-btn btn-12"><span>Login!</span><span>Teacher</span></button></a>
@@ -170,6 +177,26 @@
             document.querySelector('.help-icon').addEventListener('click', function() {
                 alert('How can we assist you?');
             });
+            $(document).ready(function() {
+  // Check if the user has a preference for day or night mode (stored in localStorage)
+  const isNightMode = localStorage.getItem('nightMode');
+
+  // Set the initial mode based on the user's preference or default to day mode
+  if (isNightMode === 'true') {
+    $('body').addClass('night-mode');
+    $('#modeToggle').prop('checked', true);
+  }
+
+  // Toggle mode when the button is clicked
+  $('#modeToggle').on('change', function() {
+    $('body').toggleClass('night-mode');
+
+    // Save the user's preference in localStorage
+    const isNightMode = $('body').hasClass('night-mode');
+    localStorage.setItem('nightMode', isNightMode);
+  });
+});
+
         </script>
 </body>
 
