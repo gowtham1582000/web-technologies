@@ -6,18 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* Default day mode styles */
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
+        /* Night mode styles (override the default styles) */
+        body.night-mode {
+            background-color: #333333;
+            color: #FFFFFF;
+        }
+        @media only screen and (max-width: 900px) {
+  .align {
+    margin-right: 300px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+    .align2{
+    margin-right: 950px;
+   }
+
+}
+
+@media only screen and (max-width: 600px) {
+  .login-buttons {
+    margin-left: 400px;
+    display:inline;
+  }
+  .align1 {
+    margin: auto;
+  }
+}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
 
     <header style="background-color: #FF5733; padding: 20px; text-align: center; color: #FFF;background-image: url(school-banner.jpg);">
-        <div style="width: 100%; margin: 0 auto;">
+        <div>
             <!-- Student and Teacher Login Buttons wrapped in divs -->
             <div class="login-buttons">
-                
-                    <a href="student-teacher-login.html"><button class="custom-btn btn-12"><span>Login!</span><span>Student</span></button></a>
+                <div class="toggle-container align align1 align2">
+                    <label class="switch">
+                      <input type="checkbox" id="modeToggle">
+                      <span class="slider round"> <span class="icon-day">☼</span>
+                        <span class="icon-moon">☽</span></span>
+                    </label>
+                  </div>
+                    <a href="student-login-signup.html"><button class="custom-btn btn-12"><span>Login!</span><span>Student</span></button></a>
                
-                    <a href="teacher-login.html"><button class="custom-btn btn-12"><span>Login!</span><span>Teacher</span></button></a>
+                    <a href="teacher-login-signup.html"><button class="custom-btn btn-12"><span>Login!</span><span>Teacher</span></button></a>
                
             </div>
 
@@ -84,10 +126,10 @@
         </div>
     </div>
 
-    <h2 style="text-align:center;color: #d14545;"">Our Faculty Team</h2>
+    <h2 style="text-align:center;color: #d14545;">Our Faculty Team</h2>
     <div class=" row" style="box-sizing: border-box; border-radius:20px">
         <div class="column">
-            <div class="card" style=border-radius:20px">
+            <div class="card" style="border-radius:20px">
                 <img src="teacher.jpg" alt="Jane" style="width:100%">
                 <div class="container">
                     <h2>Jane Doe</h2>
@@ -170,6 +212,26 @@
             document.querySelector('.help-icon').addEventListener('click', function() {
                 alert('How can we assist you?');
             });
+            $(document).ready(function() {
+  // Check if the user has a preference for day or night mode (stored in localStorage)
+  const isNightMode = localStorage.getItem('nightMode');
+
+  // Set the initial mode based on the user's preference or default to day mode
+  if (isNightMode === 'true') {
+    $('body').addClass('night-mode');
+    $('#modeToggle').prop('checked', true);
+  }
+
+  // Toggle mode when the button is clicked
+  $('#modeToggle').on('change', function() {
+    $('body').toggleClass('night-mode');
+
+    // Save the user's preference in localStorage
+    const isNightMode = $('body').hasClass('night-mode');
+    localStorage.setItem('nightMode', isNightMode);
+  });
+});
+
         </script>
 </body>
 

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        background-color: #727c86;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Responsive styles (adjust as needed) */
+      @media (max-width: 600px) {
+        .login-container {
+          max-width: 80%;
+        }
+      }
+      /* Center the content inside the container */
+      .hr-container {
+        text-align: center;
+        position: relative;
+      }
+
+      /* Style the word */
+      .centered-word {
+        background-color: white; /* Optional: Add a background color to the word */
+        padding: 0 10px; /* Optional: Add some padding around the word */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .container {
+        width: 400px;
+        padding: 20px;
+        margin: 50px 50% 0 35%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .tab {
+        border: none;
+        background: rgb(121, 104, 120);
+        cursor: pointer;
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+      .form-container {
+        display: flex;
+        flex-direction: column;
+       color: rgb(255, 255, 255);
+        max-width: 400px;
+
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(139, 119, 143, 0.973);
+      }
+      .form-container1 {
+        display: flex;
+        flex-direction: column;
+        background-color: transparent;
+        max-width: 400px;
+        color: white;
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(114, 129, 141, 0.925);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="tabs">
+        <button class="tab" onclick="showTab('login')">Login</button>&nbsp;
+        <button class="tab" onclick="showTab('signup')">Signup</button>
+      </div>
+      <div id="login" class="form-container1">
+        <h1>Teacher Login Form</h1>
+        <form action="index.html" method="get">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Enter Username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter Password"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <button type="button" onclick="mess()">Login</button>
+          </div>
+        </form>
+      </div>
+      <div id="signup" class="form-container" style="display: none">
+        <h1>Teacher Signup Form</h1>
+        <form action="#" method="get">
+          <div class="form-group">
+            <label for="name">Username</label>
+            <input
+              id="name"
+              type="text"
+              name="username"
+              placeholder="Enter Username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="mail">Email</label>
+            <input
+              id="mail"
+              type="text"
+              name="email"
+              placeholder="Enter Email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="number">Phone Number</label>
+            <input
+              id="number"
+              type="text"
+              name="phonenumber"
+              placeholder="Enter Ph No"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="pass">Password</label>
+            <input
+              id="pass"
+              type="password"
+              name="password"
+              placeholder="Enter Password"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="conpass">Confirm Password</label>
+            <input
+              id="conpass"
+              type="password"
+              name="confirmpassword"
+              placeholder="Retype The Password"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <button type="button" onclick="mess1()">Signup</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      function showTab(tabName) {
+        document.body.style.backgroundImage =
+          "url(background.jpg)";
+        const loginForm = document.getElementById("login");
+        const signupForm = document.getElementById("signup");
+        
+        if (tabName === "login") {
+          loginForm.style.display = "block";
+          signupForm.style.display = "none";
+        } else {
+          loginForm.style.display = "none";
+          signupForm.style.display = "block"; 
+          document.body.style.backgroundImage =
+          "url(background2.jpg)";
+          document.body.style.backgroundSize =
+          "contain";
+        }
+      }
+      showTab("login");
+      function mess() {
+        var user = document.getElementById("username").value;
+        var pass = document.getElementById("password").value;
+        if (user == "" || pass == "") {
+          alert("Please enter Username and Password");
+        } else {
+          if (localStorage.getItem(user)) {
+            const loginDeets = JSON.parse(localStorage.getItem(user));
+            if (loginDeets==pass){
+              alert("SuccessFully Signed In")
+              window.location="index.html"
+            }else{
+              alert("Need To Sign In First")
+            }
+          }else{
+            alert("Need To Sign in First")
+          }
+        }
+      }
+      function mess1() {
+        var user = document.getElementById("name").value;
+        var pass = document.getElementById("pass").value;
+        var mail = document.getElementById("mail").value;
+        var ph = document.getElementById("number").value;
+        var conpass = document.getElementById("conpass").value;
+        var phoneregex = /^[9867][0-9]{9}$/;
+        var mailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        var passRegex =
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d._%+\-!@#$^&*(){}[\]~`]{8,12}$/;
+        var nameregex = /[a-zA-Z'.-]{3,}$/;
+        if (
+          user == "" ||
+          pass == "" ||
+          conpass == "" ||
+          mail == "" ||
+          ph == ""
+        ) {
+          alert("Please Fill All Required Fields");
+        } else {
+          if (user.match(nameregex)) {
+            if (mail.match(mailRegex)) {
+              if (ph.match(phoneregex)) {
+                if (pass.match(passRegex)) {
+                  if (conpass == pass) {
+                    alert("Successfully Signed up");
+                    localStorage.setItem(user, JSON.stringify(pass));
+                    window.location.href = "index.html";
+                  } else {
+                    alert("Password and Confirm Password should be Same");
+                  }
+                } else {
+                  alert(
+                    "Invalid Password! It should contain 8 to 12 characters, including at least one uppercase letter, one lowercase letter, and one digit."
+                  );
+                }
+              } else {
+                alert("Invalid Phone Number!");
+              }
+            } else {
+              alert("Invalid Email Address!");
+            }
+          } else {
+            alert(
+              "Name Should Contain atleast 3 Letters and it should contain only letters and spaces");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
