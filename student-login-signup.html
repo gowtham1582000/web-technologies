@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD:student-teacher-login.html
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <style>
-    h1 {
-=======
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
     <style>
       h1 {
->>>>>>> 52d32c6b8a3e0d9872fc0fbb362ab5c1ad5f2452:student-login-signup.html
+
         text-align: center;
       }
 
@@ -102,128 +96,6 @@
         padding: 30px;
         border-radius: 5px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-<<<<<<< HEAD:student-teacher-login.html
-}
-
-    
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="tabs">
-      <button class="tab" onclick="showTab('login')">Login</button>&nbsp;
-      <button class="tab" onclick="showTab('signup')">Signup</button>
-    </div>
-    <div id="login" class="form-container">
-      <h1>Student Login Form</h1>
-      <form action="index.html" method="get">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Enter Username"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Enter Password"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <button type="button" onclick="mess()">Login</button>
-        </div>
-      </form>
-    </div>
-    <div id="signup" class="form-container" style="display: none;">
-      <h1>Student Signup Form</h1>
-      <form action="#" method="get">
-        <div class="form-group">
-          <label for="name">Username</label>
-          <input id="name" type="text" name="username" placeholder="Enter Username" required>
-        </div>
-        <div class="form-group">
-          <label for="mail">Email</label>
-          <input id="mail" type="text" name="email" placeholder="Enter Email" required>
-        </div>
-        <div class="form-group">
-          <label for="number">Phone Number</label>
-          <input id="number" type="text" name="phonenumber" placeholder="Enter Ph No" required>
-        </div>
-        <div class="form-group">
-          <label for="pass">Password</label>
-          <input id="pass" type="password" name="password" placeholder="Enter Password" required>
-        </div>
-        <div class="form-group">
-          <label for="conpass">Confirm Password</label>
-          <input id="conpass" type="password" name="confirmpassword" placeholder="Retype The Password" required>
-        </div>
-        <div class="form-group">
-          <button type="button" onclick="mess1()">Signup</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <script>
-    function mess() {
-      var user = document.getElementById("username").value;
-      var pass = document.getElementById("password").value;
-      if (user == "" || pass == "") {
-        alert("Please enter Username and Password");
-      } else {
-        alert("Successfully Logged in");
-      }
-    }
-
-    function mess1() {
-      var user = document.getElementById("name").value;
-      var pass = document.getElementById("pass").value;
-      var mail = document.getElementById("mail").value;
-      var ph = document.getElementById("number").value;
-      var conpass = document.getElementById("conpass").value;
-      var mailformat = '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
-      var pssformat = ''
-      if (user == "" || pass == "" || conpass == "" || mail == "" || ph == "") {
-        alert("Please Fill All Required Fields");
-      } else {
-        if (mail.match(mailformat)) {
-          if (conpass == pass) {
-            alert("Successfully Signed up");
-            window.location.href = "index.html";
-          } else {
-            alert("Password and Confirm Password should be Same");
-          }
-        } else {
-          alert("Invalid Email Address!");
-        }
-      }
-    }
-
-    function showTab(tabName) {
-      const loginForm = document.getElementById("login");
-      const signupForm = document.getElementById("signup");
-      document.body.style.backgroundImage = "linear-gradient(15deg, #d33f34 50%, #a61322 50.1%)";
-
-      if (tabName === "login") {
-        loginForm.style.display = "block";
-        signupForm.style.display = "none";
-      } else {
-        loginForm.style.display = "none";
-        signupForm.style.display = "block";
-        document.body.style.backgroundImage = "linear-gradient(15deg, #acdd5c 50%, #744ddf 50.1%)";
-      }
-    }
-    showTab('login');
-  </script>
-</body>
-=======
       }
     </style>
   </head>
@@ -408,6 +280,5 @@
       }
     </script>
   </body>
->>>>>>> 52d32c6b8a3e0d9872fc0fbb362ab5c1ad5f2452:student-login-signup.html
 </html>
 
